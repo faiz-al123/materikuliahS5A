@@ -38,3 +38,4 @@ Materi Praktikum
  - ctrl+c untuk menghetikan server
  - sebelumnya install (npx expo install react-dom react-native-web)
  - npx expo start --web
+ ![alt text](image-3.png)
