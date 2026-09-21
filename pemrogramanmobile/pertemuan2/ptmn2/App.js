@@ -6,6 +6,7 @@ export default function App() {
     <View style={styles.container}>
       <Text>Nama: Faiz Alfaresi</Text>
       <Text>NIM: 2488010012</Text>
+      <Text>Asal sekolah: MAN5 Cirebon</Text>
       <Text>Cita-cita: Data analyst</Text>
       <Text>Rencana mencapai cita-cita menjadi seorang data analyst dengan belajar keterampilan teknis</Text>
       <Text>keterampilan teknis untuk mengolah data serta keterampilan non-teknis untuk memahami kebutuhan bisnis</Text>
