@@ -1,5 +1,43 @@
+//import { StatusBar } from 'expo-status-bar';
+//import { StyleSheet, Text, View } from 'react-native';
+
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+//import library
+import react, { useState } from 'react';
+//import components
+import{
+  View,
+  Textt,
+  image,
+  Scrollview,
+  Flatelist,
+  Textinput,
+  Button,
+  TouchableOpacity,
+  Pressable,
+  Switch,
+  modal,
+  ActivityIndicator,
+  StatusBar,
+  SafeAreaView,
+  StleSheet,
+  Alert,
+  Platform,
+} from 'react';
+
+const PROFILE = {
+  name: 'Faiz Alfaresi',
+  title: 'mahasiswa',
+  email: 'faizalfarzei@gmail.com',
+  phone: '085701984398',
+  location: 'Cirebon',
+  avatar: 'https://radarjabar.disway.id/upload/30f8b5e657b08c497c7d67c797a55b34.jpg',
+  //avatarOffline: 'assets/icon.png'
+}
+
+const SKILLS = [
+  {id: '1', name: 'React Native', level: 90, color: '#61DAFB'}
+]
 
 export default function App() {
   return (
