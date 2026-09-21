@@ -40,4 +40,4 @@ Materi Praktikum
  - npx expo start --web
  ![alt text](image-3.png)
 
- ![alt text](image-4.png) tugas
+ ![alt text](image-4.png) 
