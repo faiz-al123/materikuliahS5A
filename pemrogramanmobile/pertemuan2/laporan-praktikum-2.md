@@ -41,4 +41,7 @@ Materi Praktikum
  ![alt text](image-3.png)
 
  ![alt text](image-4.png) 
+ - ss lama
+
  ![alt text](image-5.png)
+ - ss baru
