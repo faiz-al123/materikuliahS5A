@@ -36,7 +36,13 @@ const PROFILE = {
 }
 
 const SKILLS = [
-  {id: '1', name: 'React Native', level: 90, color: '#61DAFB'}
+  {id: '1', name: 'React Native', level: 90, color: '#61DAFB'},
+  {id: '2', name: 'Flutter',      level: 75, color: '#02569B'},
+  {id: '3', name: 'JavaScript',   level: 88, color: '#F7DF1E'},
+  {id: '4', name: 'TypeScript',   level: 80, color: '#3178C6'},
+  {id: '5', name: 'Node.js',      level: 70, color: '#339933'},
+  {id: '6', name: 'Firebase',     level: 82, color: '#FFCA28'},
+  
 ]
 
 export default function App() {

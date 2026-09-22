@@ -21,6 +21,13 @@ setelah menyiapkan praktikum ini mahasiswa mampu:
 2 konfirmasi bukti
 ![alt text](image-2.png)
 
-## lanjutkan sampai selesai.... ##
+## 📝 LANGKAH 3 — Sub-Components (SkillCard & TimelineCard)
+**Konsep:** Komponen kecil yang bertugas merender satu item list. Ini adalah praktik **component reuse**.
+Tambahkan kode berikut **di antara data dan fungsi App()**:
+![alt text](image-3.png)
+
+## 📝 LANGKAH 4 — State Management dengan useState
+**Konsep:** `useState` menyimpan data yang bisa berubah. Setiap perubahan state akan men-trigger re-render komponen.
+Tambahkan state di dalam fungsi `App()`:
 
 ### hasil akhir ###
