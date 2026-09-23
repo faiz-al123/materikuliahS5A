@@ -29,5 +29,8 @@ Tambahkan kode berikut **di antara data dan fungsi App()**:
 ## 📝 LANGKAH 4 — State Management dengan useState
 **Konsep:** `useState` menyimpan data yang bisa berubah. Setiap perubahan state akan men-trigger re-render komponen.
 Tambahkan state di dalam fungsi `App()`:
+![alt text](image-4.png)
+![alt text](image-5.png)
+
 
 ### hasil akhir ###

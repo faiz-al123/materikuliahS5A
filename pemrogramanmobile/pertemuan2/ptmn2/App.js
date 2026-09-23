@@ -45,6 +45,49 @@ const SKILLS = [
   
 ]
 
+const SECTIONS = [
+  {
+    title: '💼 Pengalaman Kerja',
+    data: [
+      {
+        id: 'e1',
+        role: 'Senior Mobile Developer',
+        company: 'PT. TechVision Indonesia',
+        period: '2029 - Sekarang',
+        desc: 'Memimpin tim 5 developer dalam pengembangan aplikasi e-commerce mobile.',
+      },
+      {
+        id: 'e2',
+        role: 'Mobile Developer',
+        company: 'Startup Fintech - PayEasy',
+        period: '2020-2022',
+        desc: 'Mengembangkan fitur pembayaran digital menggunakan React Native & Redux.',
+      },
+    ],
+  },
+  {
+    title: '🎓Pendidikan',
+    data: [
+      {
+        id: 'd1',
+        role: 'S1 Informatika',
+        company: 'Universitas Islam Negeri Siber Syekh Nurjati Cirebon',
+        period: '2024 - 2029',
+        desc: 'IPK 3.50 / 4.00 Skripsi: Implementasi ML pada Aplikasi Mobile.',
+      },
+    ],
+  },
+];
+
+//================================
+//|      DATA SOSIAL MEDIA       |
+//================================
+const SOCIAL = [
+  { id: 's1', label: 'GitHub', icon: '🦑', url: 'github.com/faiz-al123' },
+ // { id: 's2', label: 'LinkedIn', icon: '', url: 'linkedin.com/in/fulan' },
+  //{ id: 's3', label: 'Portfolio', icon: '', url: 'fulan.dev' },
+];
+
 export default function App() {
   return (
     <View style={styles.container}>
