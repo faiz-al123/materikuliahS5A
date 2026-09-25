@@ -32,5 +32,42 @@ Tambahkan state di dalam fungsi `App()`:
 ![alt text](image-4.png)
 ![alt text](image-5.png)
 
+## 📝 LANGKAH 5 — SafeAreaView, StatusBar & Header
+**Konsep:**
+- `SafeAreaView` → memastikan konten tidak tertutup notch (takik kamera) atau home indicator
+- `StatusBar` → mengatur tampilan bar di bagian atas perangkat
+- `View` + `Switch` → membangun header bar
+
+Ganti bagian `return (...)` di `App()`:
+
+![alt text](image-6.png)
+
+> [!TIP]
+> `flexDirection: 'row'` membuat anak View tersusun **horizontal** (kiri ke kanan).  
+> Default di React Native adalah `column` (atas ke bawah).
+
+**✅ Checkpoint:** Header bar berwarna gelap dengan teks putih dan switch terlihat.
+
+---
+
+## 📝 LANGKAH 6 — ScrollView & Profil Section (View, Text,  img/image)
+
+**Konsep:**
+- `ScrollView` → membungkus konten panjang agar bisa di-scroll
+- ` img/image` → menampilkan gambar dari URL (`source={{ uri: '...' }}`)
+- `Text` → bisa di-styling dengan `style` prop seperti CSS
+Ganti `<View><Text ...>Step 5</Text></View>` dengan:
+{/* 4. ScrollView → semua konten CV dibungkus di sini */}
+![alt text](image-7.png)
+
+> [!NOTE]
+> **Perbedaan `TouchableOpacity` vs `Pressable`:**
+> - `TouchableOpacity` → sederhana, otomatis redup saat ditekan
+> - `Pressable` → lebih fleksibel, kita kontrol sendiri style saat `pressed`
+
+*✅ Checkpoint:** Foto profil, nama, jabatan, bio, dan tombol sosmed terlihat.
+
+---
+
 
 ### hasil akhir ###

@@ -86,7 +86,50 @@ const SOCIAL = [
   { id: 's1', label: 'GitHub', icon: '🦑', url: 'github.com/faiz-al123' },
  // { id: 's2', label: 'LinkedIn', icon: '', url: 'linkedin.com/in/fulan' },
   //{ id: 's3', label: 'Portfolio', icon: '', url: 'fulan.dev' },
-];
+]
+
+const SkillCard = ({ item }) => (
+  // 1. View -> container kartu
+  <View style={styles.card}>
+    {/* Baris atas: nama + persentase */}
+    <View style={styles.cardHeader}>
+      {/* 2. Text -> nama skill */}
+      <Text style={styles.skillName}>{item.name}</Text>
+      <Text style={styles.skillLevel}>{item.level}%</Text>
+    </View>
+
+    {/* Progress bar: View berlapis */}
+    <View style={styles.progressTrack}>
+      <View
+        style={[
+          styles.progressFill,
+          // width dinamis dari data, warna dari data
+          {
+            width: `${item.level}%`, backgroundColor: item.color,},
+        ]}
+      />
+    </View>
+  </View>
+);
+
+const TimelineCard = ({ item, onPress }) => (
+  // 9. TouchableOpacity -> tekan untuk buka Modal
+  <TouchableOpacity
+    style={styles.timelineCard}
+    onPress={() => onPress(item)}
+    activeOpacity={0.75} // opacity saat ditekan (0-1)
+  >
+    {/* Titik bulat di sebelah kiri (dekorasi timeline) */}
+    <View style={styles.dot} />
+
+    {/* Konten teks */}
+    <View style={styles.timelineContent}>
+      <Text style={styles.timelineRole}>{item.role}</Text>
+      <Text style={styles.timelineCompany}>{item.company}</Text>
+      <Text style={styles.timelinePeriod}>{item.period}</Text>
+    </View>
+  </TouchableOpacity>
+);
 
 export default function App() {
   return (
