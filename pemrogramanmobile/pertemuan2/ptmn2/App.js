@@ -45,7 +45,301 @@ const SKILLS = [
   
 ]
 
-    
+const SECTIONS = [
+  {
+    title: 'Pengalaman Kerja',
+    data: [
+      {
+        id: 'e1',
+        role: 'Senior Mobile Developer',
+        company: 'PT. TechVision Indonesia',
+        period: '2022 - Sekarang',
+        desc: 'Memimpin tim 5 developer dalam pengembangan aplikasi e-commerce mobile.',
+      },
+      {
+        id: 'e2',
+        role: 'Mobile Developer',
+        company: 'Startup Fintech - PayEasy',
+        period: '2020 - 2022',
+        desc: 'Mengembangkan fitur pembayaran digital menggunakan React Native & Redux.',
+      },
+    ],
+  },
+  {
+    title: 'Pendidikan',
+    data: [
+      {
+        id: 'd1',
+        role: 'S1 Informatika',
+        company: 'Universitas Islam Negeri Siber Syekh Nurjati Cirebon',
+        period: '2024 - 2029',
+        desc: 'IPK 3.72 / 4.00 Skripsi: Implementasi ML pada Aplikasi Mobile.',
+      },
+    ],
+  },
+];
+
+// DATA SOSIAL MEDIA
+const SOCIAL = [
+  { id: 's1', label: 'GitHub', icon: '🦑', url: 'github.com/faiz-al123' },
+  //{ id: 's2', label: 'LinkedIn', icon: '', url: 'linkedin.com/in/fulan' },
+  //{ id: 's3', label: 'Portfolio', icon: '', url: 'fulan.dev' },
+];
+
+
+// SUB-COMPONENT: SkillCard
+// Dipakai oleh FlatList untuk render tiap skill
+// Props: item { name, level, color }
+const SkillCard = ({ item }) => (
+  // 1. View -> container kartu
+  <View style={styles.skillCard}>
+    {/* Baris atas: nama + persentase */}
+    <View style={styles.skillHeader}>
+      {/* 2. Text -> nama skill */}
+      <Text style={styles.skillName}>{item.name}</Text>
+      <Text style={styles.skillLevel}>{item.level}</Text>
+    </View>
+    {/* Progress bar: View berlapis */}
+    <View style={styles.progressBg}>
+      <View
+        style={[
+          styles.progressFill,
+          // width dinamis dari data, warna dari data
+          { width: item.level, backgroundColor: item.color }
+        ]}
+      />
+    </View>
+  </View>
+);
+
+//
+// SUB-COMPONENT: TimelineCard
+// Dipakai oleh SectionList
+// Props: item { role, company, period }, onPress
+const TimelineCard = ({ item, onPress }) => (
+  // 9. TouchableOpacity -> tekan untuk buka Modal
+  <TouchableOpacity
+    style={styles.timelineCard}
+    onPress={() => onPress(item)}
+    activeOpacity={0.75} // opacity saat ditekan (0-1)
+  >
+    {/* Titik bulat di sebelah kiri (dekorasi timeline) */}
+    <View style={styles.timelineDot} />
+
+    {/* Konten teks */}
+    <View style={styles.timelineContent}>
+      <Text style={styles.roleText}>{item.role}</Text>
+      <Text style={styles.companyText}>{item.company}</Text>
+      <Text style={styles.periodText}>{item.period}</Text>
+    </View>
+  </TouchableOpacity>
+);
+
+export default function App() {
+  // --- STATE
+  // 11. Switch: apakah user "Open to Work"?
+  const [openToWork, setOpenToWork] = useState(true);
+  // 12. Modal: item yang dipilih & visibilitas modal
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false);
+  // 7. TextInput: nilai input form kontak
+  const [senderName, setSenderName] = useState('');
+  const [message, setMessage] = useState('');
+  // 13. ActivityIndicator: status loading
+  const [sending, setSending] = useState(false);
+  // 10. Pressable: status sedang ditekan
+  const [pressing, setPressing] = useState(false);
+
+  // --- HANDLER FUNCTIONS
+  // Dipanggil saat kartu timeline ditekan
+  const handleCardPress = (item) => {
+    setSelectedItem(item);   // simpan item yang dipilih
+    setModalVisible(true);   // tampilkan modal
+  };
+
+  // Dipanggil saat tombol "Kirim Pesan" ditekan
+  const handleSend = () => {
+    // Validasi input tidak boleh kosong
+    if (!senderName.trim() || !message.trim()) {
+      Alert.alert('⚠️ Peringatan', 'Nama dan pesan tidak boleh kosong!');
+      return;
+    }
+
+    setSending(true); // tampilkan ActivityIndicator
+
+    // Simulasi delay 2 detik (misal: request ke server)
+    setTimeout(() => {
+      setSending(false);
+      setSenderName('');
+      setMessage('');
+      Alert.alert('✅ Berhasil', `Pesan dari ${senderName} telah terkirim!`);
+    }, 2000);
+  };
+
+  return (
+    //JSX akan ditulis di langkah berikutnya
+    <View><Text>Step 4 done </Text></View>
+  );
+}
+
+return (
+    // 15. SafeAreaView -> area aman dari notch & home bar
+    <SafeAreaView style={styles.safeArea}>
+      {/* 14. StatusBar -> warna latar status bar & style teks/ikon */}
+      <StatusBar
+        backgroundColor="#1a1a2e" // warna latar (Android)
+        barStyle="light-content"  // ikon putih (iOS & Android)
+      />
+
+      {/* HEADER BAR */}
+      {/* 1. View -> container header dengan flexDirection row */}
+      <View style={styles.header}>
+        {/* 2. Text -> judul header */}
+        <Text style={styles.headerTitle}>Curriculum Vitae</Text>
+
+        {/* Toggle "Open to Work" */}
+        <View style={styles.statusBadge}>
+          <Text style={styles.statusText}>
+            {openToWork ? '🟢 Open' : '🔴 Busy'}
+          </Text>
+          {/* 11. Switch -> toggle on/off */}
+          <Switch
+            value={openToWork} // nilai saat ini
+            onValueChange={setOpenToWork} // callback saat diubah
+            trackColor={{ false: '#555', true: '#4ade80' }}
+            thumbColor={openToWork ? '#fff' : '#aaa'}
+          />
+        </View>
+      </View>
+
+      {/* Konten akan ditambahkan di langkah berikutnya */}
+    </SafeAreaView>
+  );
+
+  
+<ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
+
+  {/*
+    SECTION PROFIL
+    Komponen: View, Text, Image
+  */}
+  <View style={styles.profileSection}>
+
+    {/* 3. Image → foto profil dari URL internet */}
+    <Image
+      source={{ url: PROFILE.avatar }}
+      style={styles.avatar}
+      // resizeMode menentukan cara gambar menyesuaikan ukuran
+      // 'cover' = memenuhi area (mungkin terpotong)
+      // 'contain' = semua terlihat (mungkin ada ruang kosong)
+    />
+
+    {/* Conditional rendering: badge hanya tampil jika openToWork = true */}
+    {openToWork && (
+      <View style={styles.badge}>
+        <Text style={styles.badgeText}>✅ Open to Work</Text>
+      </View>
+    )}
+
+    {/* 2. Text → berbagai ukuran & weight */}
+    <Text style={styles.profileName}>{PROFILE.name}</Text>
+    <Text style={styles.profileTitle}>{PROFILE.title}</Text>
+    <Text style={styles.profileBio}>{PROFILE.bio}</Text>
+
+    {/* Info kontak dalam baris horizontal */}
+    <View style={styles.contactRow}>
+      <Text style={styles.contactItem}>📧 {PROFILE.email}</Text>
+      <Text style={styles.contactItem}>📍 {PROFILE.location}</Text>
+    </View>
+
+    <Text style={styles.contactItem}>📱 {PROFILE.phone}</Text>
+
+    {/* 9. TouchableOpacity → tombol sosial media */}
+    <View style={styles.socialRow}>
+      {SOCIAL.map((s) => (
+        <TouchableOpacity
+          key={s.id}
+          style={styles.socialBtn}
+          onPress={() => Alert.alert('🔗 Link', s.url)}
+          activeOpacity={0.8}
+        >
+          <Text style={styles.socialIcon}>{s.icon}</Text>
+          <Text style={styles.socialLabel}>{s.label}</Text>
+        </TouchableOpacity>
+      ))}
+    </View>
+
+    {/* 10. Pressable → tombol dengan efek saat ditekan */}
+    <Pressable
+      // style bisa berupa fungsi yang menerima { pressed }
+      style={({ pressed }) => [
+        styles.downloadBtn,
+        pressed && styles.downloadBtnPressed, // style tambahan saat ditekan
+      ]}
+      onPressIn={() => setPressing(true)}
+      onPressOut={() => setPressing(false)}
+      onPress={() => Alert.alert('⬇️ Download', 'CV sedang diunduh...')}
+    >
+      <Text style={styles.downloadBtnText}>
+        {pressing ? '⌛ Mengunduh...' : '⬇️ Download CV (PDF)'}
+      </Text>
+    </Pressable>
+
+  </View>
+
+  {/* Konten lanjutan di langkah berikutnya */}
+  <View style={{ height: 40 }} />
+
+<View style={styles.sectionBox}>
+  <Text style={styles.sectionTitle}>🛠️ Keahlian</Text>
+  <Text style={styles.sectionSubtitle}>
+    ↳ FlatList: menampilkan list data secara efisien
+  </Text>
+
+  {/* 5. FlatList → daftar skill */}
+  <FlatList
+    data={SKILLS} // array data
+    keyExtractor={(item) => item.id} // key unik tiap item
+    renderItem={({ item }) => <SkillCard item={item} />} // render tiap item
+    scrollEnabled={false} // scroll dihandle ScrollView
+    ItemSeparatorComponent={() => (
+      // komponen pemisah antar item
+      <View style={{ height: 8 }} />
+    )}
+  />
+</View>
+
+<View style={styles.sectionBox}>
+  <Text style={styles.sectionTitle}>📋 Riwayat</Text>
+  <Text style={styles.sectionSubtitle}>
+    ↳ SectionList: data dikelompokkan per kategori. Ketuk kartu untuk Modal detail.
+  </Text>
+
+  {/* 6. SectionList → pengalaman & pendidikan */}
+  <SectionList
+    sections={SECTIONS}                 // array of { title, data }
+    keyExtractor={(item) => item.id}
+    renderItem={({ item }) => (
+      // TimelineCard punya onPress untuk membuka Modal
+      <TimelineCard item={item} onPress={handleCardPress} />
+    )}
+    // renderSectionHeader: header untuk tiap kelompok
+    renderSectionHeader={({ section: { title } }) => (
+      <View style={styles.sectionHeader}>
+        <Text style={styles.sectionHeaderText}>{title}</Text>
+      </View>
+    )}
+    scrollEnabled={false}
+    ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
+    SectionSeparatorComponent={() => <View style={{ height: 16 }} />}
+  />
+</View>
+
+</ScrollView>
+
+
+
+
 
 export default function App() {
   return (
