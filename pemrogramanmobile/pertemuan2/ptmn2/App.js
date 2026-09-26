@@ -335,6 +335,114 @@ return (
   />
 </View>
 
+<View style={styles.sectionBox}>
+  <Text style={styles.sectionTitle}>✉️ Hubungi Saya</Text>
+
+  <Text style={styles.sectionSubtitle}>
+    ↳ TextInput, Button, ActivityIndicator
+  </Text>
+
+  {/* 7. TextInput → input nama (single line) */}
+  <TextInput
+    style={styles.textInput}
+    placeholder="Nama Anda"
+    placeholderTextColor="#888"
+    value={senderName}          // nilai terkontrol dari state
+    onChangeText={setSenderName} // update state setiap ketik
+    returnKeyType="next"         // label tombol keyboard
+    editable={!sending}          // nonaktif saat loading
+  />
+
+  {/* 7. TextInput → input pesan (multiline = seperti textarea) */}
+  <TextInput
+    style={[styles.textInput, styles.textArea]} // gabungkan 2 style
+    placeholder="Tulis pesan Anda di sini..."
+    placeholderTextColor="#888"
+    value={message}
+    onChangeText={setMessage}
+    multiline                    // aktifkan multiline
+    numberOfLines={4}            // tinggi awal 4 baris
+    textAlignVertical="top"      // teks mulai dari atas (Android)
+    editable={!sending}
+  />
+
+  {/* Kondisi: tampilkan loading atau tombol kirim */}
+  {sending ? (
+
+    // 13. ActivityIndicator → spinner saat proses
+    <View style={styles.loadingRow}>
+      <ActivityIndicator
+        size="large"
+        color="#7c3aed"
+      />
+
+      <Text style={styles.loadingText}>
+        Mengirim pesan...
+      </Text>
+    </View>
+
+  ) : (
+
+    // 8. Button → tombol standar React Native
+    <Button
+      title="✉️ Kirim Pesan"
+      color="#7c3aed"           // warna tombol
+      onPress={handleSend}      // handler saat ditekan
+    />
+
+  )}
+</View>
+
+<Modal
+  visible={modalVisible}
+  animationType="slide"
+  transparent
+  onRequestClose={() => setModalVisible(false)}
+>
+  {/* Overlay gelap di belakang dialog */}
+  <View style={styles.modalOverlay}>
+
+    {/* Kotak dialog */}
+    <View style={styles.modalBox}>
+
+      {/* Render isi hanya jika ada item yang dipilih */}
+      {selectedItem && (
+        <>
+          <Text style={styles.modalTitle}>
+            {selectedItem.role}
+          </Text>
+
+          <Text style={styles.modalCompany}>
+            {selectedItem.company}
+          </Text>
+
+          <Text style={styles.modalPeriod}>
+            📅 {selectedItem.period}
+          </Text>
+
+          <View style={styles.modalDivider} />
+
+          <Text style={styles.modalDesc}>
+            {selectedItem.desc}
+          </Text>
+        </>
+      )}
+
+      {/* Tombol tutup modal */}
+      <TouchableOpacity
+        style={styles.modalCloseBtn}
+        onPress={() => setModalVisible(false)}
+      >
+        <Text style={styles.modalCloseBtnText}>
+          ✕ Tutup
+        </Text>
+      </TouchableOpacity>
+
+    </View>
+
+  </View>
+</Modal>
+
 </ScrollView>
 
 

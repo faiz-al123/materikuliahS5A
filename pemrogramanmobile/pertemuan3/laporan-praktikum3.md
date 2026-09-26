@@ -128,5 +128,45 @@ Tambahkan kode berikut **di dalam** `<ScrollView>`, setelah section profil:
 
 **✅ Checkpoint:** Daftar pengalaman kerja & pendidikan terkelompok terlihat.
 
+## 📝 LANGKAH 9 — TextInput, Button & ActivityIndicator
+**Konsep:**
+- `TextInput` → input teks. `value` + `onChangeText` = controlled component
+- `Button` → tombol paling sederhana di React Native
+- `ActivityIndicator` → spinner loading
+
+{/* ════════════════════════════════════
+    SECTION FORM KONTAK
+    Komponen: TextInput, Button, ActivityIndicator
+    ════════════════════════════════════ */}
+![alt text](image-14.png)
+![alt text](image-15.png)
+
+> [!TIP]
+> **Controlled vs Uncontrolled Component:**
+> - **Controlled:** `value={state}` + `onChangeText={setState}` → nilai input selalu sesuai state
+> - **Uncontrolled:** hanya pakai `ref` → tidak direkomendasikan di React
+
+**✅ Checkpoint:** Form input nama & pesan berfungsi. Tekan "Kirim Pesan" → loading 2 detik → Alert sukses.
+
+## 📝 LANGKAH 10 — Modal (Popup Detail)
+**Konsep:** `Modal` menampilkan konten di atas (overlay) tampilan saat ini. Dikendalikan dengan prop `visible`.
+Tambahkan **setelah** penutup `</ScrollView>` dan sebelum `</SafeAreaView>`:
+{/* ════════════════════════════════════
+    12. MODAL → popup detail riwayat
+    ════════════════════════════════════ */}
+ ![alt text](image-16.png)
+ ![alt text](image-17.png)
+
+> [!NOTE]
+> **Props Modal:**
+> | Prop | Nilai | Fungsi |
+> |---|---|---|
+> | `visible` | `true`/`false` | Tampilkan/sembunyikan |
+> | `animationType` | `'slide'`, `'fade'`, `'none'` | Animasi kemunculan |
+> | `transparent` | `true`/`false` | Latar transparan |
+> | `onRequestClose` | fungsi | Tombol back Android |
+
+**✅ Checkpoint:** Ketuk kartu riwayat → modal muncul dari bawah → tombol Tutup menutup modal.
+
 
 ### hasil akhir ###
