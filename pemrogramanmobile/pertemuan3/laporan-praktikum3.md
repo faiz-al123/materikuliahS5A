@@ -214,7 +214,10 @@ Tambahkan kode berikut di **bawah** fungsi `App()` (paling bawah file):
   ![alt text](image-29.png)
 
   // ── LOADING ROW ────────────────────────────
+  ![alt text](image-30.png)
 
   // ── MODAL ──────────────────────────────────
+  ![alt text](image-31.png)
+  ![alt text](image-32.png)
 
 ### hasil akhir ###
