@@ -28,7 +28,7 @@ const PROFILE = {
   email: 'faizalfarzei@gmail.com',
   phone: '085701984398',
   location: 'Cirebon',
-  avatar: require('./assets/FAIZ ALFARESI_4662.jpeg'),
+  avatar: require('./assets/FAIZ ALFARESI_4662.jpg'),
   //avatar: 'https://radarjabar.disway.id/upload/30f8b5e657b08c497c7d67c797a55b34.jpg',
 };
 
