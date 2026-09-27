@@ -168,5 +168,53 @@ Tambahkan **setelah** penutup `</ScrollView>` dan sebelum `</SafeAreaView>`:
 
 **✅ Checkpoint:** Ketuk kartu riwayat → modal muncul dari bawah → tombol Tutup menutup modal.
 
+## 📝 LANGKAH 11 — StyleSheet (Styling Terpusat)
+
+**Konsep:** `StyleSheet.create()` adalah cara resmi styling di React Native. Mirip CSS tetapi menggunakan JavaScript object dengan properti camelCase.
+
+Tambahkan kode berikut di **bawah** fungsi `App()` (paling bawah file):
+
+
+// ============================================
+//  PALET WARNA (konstanta warna terpusat)
+// ============================================
+![alt text](image-20.png)
+
+// ============================================
+//  16. StyleSheet.create() → semua style
+// ============================================
+![alt text](image-18.png)
+
+  // ── HEADER BAR ────────────────────────────
+  ![alt text](image-19.png)
+
+  // ── SECTION PROFIL ─────────────────────────
+  ![alt text](image-21.png)
+  ![alt text](image-22.png)
+
+  // ── SOSIAL MEDIA ───────────────────────────
+  ![alt text](image-23.png)
+
+  // ── PRESSABLE DOWNLOAD ─────────────────────
+  ![alt text](image-24.png)
+
+  // ── SECTION BOX (wrapper kartu) ────────────
+  ![alt text](image-25.png)
+
+  // ── SECTION LIST HEADER ────────────────────
+  ![alt text](image-26.png)
+
+  // ── SKILL CARD ─────────────────────────────
+  ![alt text](image-27.png)
+
+  // ── TIMELINE CARD ──────────────────────────
+  ![alt text](image-28.png)
+
+  // ── TEXT INPUT ─────────────────────────────
+  ![alt text](image-29.png)
+
+  // ── LOADING ROW ────────────────────────────
+
+  // ── MODAL ──────────────────────────────────
 
 ### hasil akhir ###

@@ -445,29 +445,380 @@ return (
 
 </ScrollView>
 
+// ============================================
+//  PALET WARNA (konstanta warna terpusat)
+// ============================================
+const COLORS = {
+  bg: '#0f0f1a',          // latar belakang
+  card: '#1a1a2e',        // kartu/panel
+  cardBorder: '#2d2d44',  // border kartu
+  accent: '#7c3aed',      // ungu utama
+  accentLight: '#a78bfa', // ungu muda
+  accentGold: '#f59e0b',  // emas
+  text: '#f0f0f0',        // teks utama
+  textMuted: '#9ca3af',   // teks redup
+  textDim: '#6b7280',     // teks sangat redup
+  success: '#4ade80',     // hijau
+  white: '#ffffff',
+};
 
-
-
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Nama: Faiz Alfaresi</Text>
-      <Text>NIM: 2488010012</Text>
-      <Text>Asal sekolah: MAN5 Cirebon</Text>
-      <Text>Cita-cita: Data analyst</Text>
-      <Text>Rencana mencapai cita-cita menjadi seorang data analyst dengan belajar keterampilan teknis</Text>
-      <Text>keterampilan teknis untuk mengolah data serta keterampilan non-teknis untuk memahami kebutuhan bisnis</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
+// ============================================
+//  16. StyleSheet.create() → semua style
+// ============================================
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // — LAYOUT DASAR —
+  safeArea: {
+    flex: 1,                          // isi penuh layar
+    backgroundColor: COLORS.bg,
   },
+  scroll: {
+    flex: 1,
+  },
+
+  // — HEADER —
+headerBar: {
+  backgroundColor: '#111827',
+  paddingHorizontal: 20,
+  paddingVertical: 14,
+  flexDirection: 'row',
+  justifyContent: 'space-between', // anak tersusun ujung kiri & kanan
+  alignItems: 'center', // rata tengah vertikal
+  borderBottomWidth: 1,
+  borderBottomColor: COLORS.cardBorder,
+  elevation: 4, // bayangan (Android)
+  shadowColor: '#000', // bayangan (iOS)
+  shadowOpacity: 0.3,
+  shadowOffset: { width: 0, height: 2 },
+  shadowRadius: 4,
+},
+
+headerTitle: {
+  color: COLORS.white,
+  fontSize: 18,
+  fontWeight: '700',
+  letterSpacing: 0.5,
+},
+
+switchRow: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  gap: 8,
+},
+
+switchLabel: {
+  color: COLORS.textMuted,
+  fontSize: 12,
+  fontWeight: '600',
+},
+
+// ── SECTION PROFIL ─────────────────────────
+profileSection: {
+  alignItems: 'center',
+  paddingVertical: 32,
+  paddingHorizontal: 20,
+  backgroundColor: COLORS.card,
+  marginBottom: 1,
+  borderBottomLeftRadius: 24,
+  borderBottomRightRadius: 24,
+  borderBottomWidth: 2,
+  borderColor: COLORS.accent,
+},
+
+avatar: {
+  width: 110,
+  height: 110,
+  borderRadius: 55,
+  borderWidth: 3,
+  borderColor: COLORS.accent,
+  marginBottom: 16,
+},
+
+badge: {
+  backgroundColor: '#052e16',
+  borderWidth: 1,
+  borderColor: COLORS.success,
+  paddingHorizontal: 12,
+  paddingVertical: 4,
+  borderRadius: 6,
+  marginBottom: 12,
+},
+
+badgeText: {
+  color: COLORS.success,
+  fontSize: 12,
+  fontWeight: '700',
+},
+
+profileName: {
+  color: COLORS.white,
+  fontSize: 26,
+  fontWeight: '800',
+  textAlign: 'center',
+},
+
+profileTitle: {
+  color: COLORS.accentLight,
+  fontSize: 14,
+  fontWeight: '600',
+  marginTop: 4,
+  marginBottom: 14,
+  textAlign: 'center',
+},
+
+profileBio: {
+  color: COLORS.textMuted,
+  fontSize: 13,
+  lineHeight: 20,
+  textAlign: 'center',
+  marginBottom: 16,
+  paddingHorizontal: 8,
+},
+
+contactRow: {
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  gap: 8,
+  marginBottom: 16,
+},
+
+contactItem: {
+  color: COLORS.textMuted,
+  fontSize: 12,
+  textAlign: 'center',
+  marginBottom: 4,
+},
+
+// ── SOSIAL MEDIA ───────────────────────────
+socialRow: {
+  flexDirection: 'row',
+  gap: 12,
+  marginTop: 16,
+  marginBottom: 20,
+},
+
+socialBtn: {
+  alignItems: 'center',
+  backgroundColor: '#111827',
+  paddingVertical: 10,
+  paddingHorizontal: 16,
+  borderRadius: 12,
+  borderWidth: 1,
+  borderColor: COLORS.cardBorder,
+},
+
+socialIcon: {
+  fontSize: 20,
+  marginBottom: 4,
+},
+
+socialLabel: {
+  color: COLORS.text,
+  fontSize: 11,
+  fontWeight: '600',
+},
+
+// ── TOMBOL DOWNLOAD ─────────────────────
+downloadBtn: {
+  backgroundColor: COLORS.accent,
+  paddingVertical: 14,
+  paddingHorizontal: 36,
+  borderRadius: 50,
+  elevation: 4,
+  shadowColor: COLORS.accent,
+  shadowOpacity: 0.5,
+  shadowOffset: { width: 0, height: 4 },
+  shadowRadius: 8,
+},
+
+downloadBtnPressed: {
+  backgroundColor: '#5b21b6',
+},
+
+downloadBtnText: {
+  color: COLORS.white,
+  fontWeight: '700',
+  fontSize: 14,
+},
+
+// ── SECTION BOX (wrapper kartu) ────────────
+sectionBox: {
+  marginHorizontal: 16,
+  marginBottom: 16,
+  backgroundColor: COLORS.card,
+  borderRadius: 16,
+  padding: 18,
+  borderWidth: 1,
+  borderColor: COLORS.cardBorder,
+},
+
+sectionTitle: {
+  color: COLORS.white,
+  fontSize: 17,
+  fontWeight: '700',
+  marginBottom: 4,
+},
+
+sectionSubtitle: {
+  color: COLORS.textDim,
+  fontSize: 11,
+  fontStyle: 'italic',
+  marginBottom: 16,
+},
+
+// ── SECTION LIST HEADER ────────────────────
+sectionHeader: {
+  backgroundColor: '#111827',
+  paddingVertical: 8,
+  paddingHorizontal: 12,
+  borderRadius: 8,
+  marginBottom: 8,
+  borderLeftWidth: 3,
+  borderLeftColor: COLORS.accent,
+},
+
+sectionHeaderText: {
+  color: COLORS.text,
+  fontWeight: '700',
+  fontSize: 13,
+},
+
+
+// ── SKILL CARD ─────────────────────────────
+skillCard: {
+  backgroundColor: '#111827',
+  padding: 12,
+  borderRadius: 10,
+  borderWidth: 1,
+  borderColor: COLORS.cardBorder,
+},
+
+skillHeader: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  marginBottom: 8,
+},
+
+skillName: {
+  color: COLORS.text,
+  fontWeight: '600',
+  fontSize: 13,
+},
+
+skillPercent: {
+  color: COLORS.text,
+  fontWeight: '700',
+  fontSize: 13,
+},
+
+progressBg: {
+  height: 6,
+  backgroundColor: '#111827',
+  borderRadius: 4,
+  overflow: 'hidden',
+},
+
+progressFill: {
+  height: 6,
+  borderRadius: 4,
+  // width & backgroundColor diset secara inline (dinamis dari data)
+},
+
+// ── TIMELINE CARD ──────────────────────────
+timelineCard: {
+  flexDirection: 'row',
+  backgroundColor: '#111827',
+  borderRadius: 12,
+  padding: 14,
+  borderWidth: 1,
+  borderColor: COLORS.cardBorder,
+},
+
+timelineDot: {
+  width: 10,
+  height: 10,
+  borderRadius: 5,
+  backgroundColor: COLORS.accent,
+  marginTop: 4,
+  marginRight: 12,
+},
+
+timelineContent: {
+  flex: 1,
+},
+
+timelineRole: {
+  color: COLORS.white,
+  fontWeight: '700',
+  fontSize: 14,
+  marginBottom: 2,
+},
+
+timelineCompany: {
+  color: COLORS.accentLight,
+  fontSize: 13,
+  marginBottom: 2,
+},
+
+timelinePeriod: {
+  color: COLORS.textMuted,
+  fontSize: 11,
+  marginBottom: 6,
+},
+
+timelineHint: {
+  color: COLORS.accentGold,
+  fontSize: 11,
+  fontStyle: 'italic',
+},
+
+// ── FORM KONTAK ─────────────────────────────
+textInput: {
+  backgroundColor: '#111827',
+  color: COLORS.text,
+  borderWidth: 1,
+  borderColor: COLORS.cardBorder,
+  borderRadius: 10,
+  paddingHorizontal: 14,
+
+  // Platform.OS membedakan iOS dan Android
+  paddingVertical: Platform.OS === 'ios' ? 14 : 10,
+
+  fontSize: 14,
+  marginBottom: 12,
+},
+
+textArea: {
+  height: 100,
+  textAlignVertical: 'top', // teks mulai dari atas (Android)
+},
+
+
 });
+
+
+
+
+
+//export default function App() {
+  //return (
+    //<View style={styles.container}>
+      //<Text>Nama: Faiz Alfaresi</Text>
+      //<Text>NIM: 2488010012</Text>
+     // <Text>Asal sekolah: MAN5 Cirebon</Text>
+      //<Text>Cita-cita: Data analyst</Text>
+      //<Text>Rencana mencapai cita-cita menjadi seorang data analyst dengan belajar keterampilan teknis</Text>
+      //<Text>keterampilan teknis untuk mengolah data serta keterampilan non-teknis untuk memahami kebutuhan bisnis</Text>
+      //<StatusBar style="auto" />
+    //</View>
+  //);
+//}
+
+//const styles = StyleSheet.create({
+  //container: {
+    //flex: 1,
+    //backgroundColor: '#fff',
+    //alignItems: 'center',
+    //justifyContent: 'center',
+  //},
+//});
