@@ -220,4 +220,107 @@ Tambahkan kode berikut di **bawah** fungsi `App()` (paling bawah file):
   ![alt text](image-31.png)
   ![alt text](image-32.png)
 
-### hasil akhir ###
+## ✅ LANGKAH 12 — Verifikasi & Pengujian
+
+Jalankan aplikasi dan pastikan semua fitur bekerja:
+
+| # | Yang Diuji | Hasil yang Diharapkan |
+|---|---|---|
+| 1 | Aplikasi bisa dibuka | Layar CV tampil tanpa error |
+| 2 | Foto profil tampil | Gambar dari URL terload |
+| 3 | Halaman bisa di-scroll | Semua section bisa diakses |
+| 4 | Toggle Switch | Badge "Open to Work" muncul/hilang |
+| 5 | Progress bar skill | Bar berwarna sesuai persentase |
+| 6 | Ketuk kartu riwayat | Modal popup muncul dari bawah |
+| 7 | Tombol Tutup di Modal | Modal tertutup |
+| 8 | Isi form & kirim | Loading 2 detik → Alert sukses |
+| 9 | Kirim dengan input kosong | Alert peringatan muncul |
+| 10 | Tekan Download CV | Efek visual berubah + Alert |
+| 11 | Tap tombol sosmed | Alert URL muncul |
+
+---
+
+## 🧠 Konsep Styling yang Perlu Dipahami
+
+### Flexbox di React Native
+
+ 
+┌─────────────────────────┐
+│  flexDirection: 'column'│  ← DEFAULT
+│  ┌───┐                  │
+│  │ A │                  │  Anak tersusun
+│  ├───┤                  │  dari ATAS ke BAWAH
+│  │ B │                  │
+│  └───┘                  │
+└─────────────────────────┘
+
+┌─────────────────────────┐
+│  flexDirection: 'row'   │
+│  ┌───┬───┐              │  Anak tersusun
+│  │ A │ B │              │  dari KIRI ke KANAN
+│  └───┴───┘              │
+└─────────────────────────┘
+ 
+
+### Satuan Ukuran
+
+Di React Native **tidak ada unit** seperti `px`, `em`, `%`. Semua angka adalah **density-independent pixels (dp)**.
+
+ 
+// Benar ✅
+width: 100       // 100dp
+
+// Salah ❌
+width: '100px'   // tidak valid
+ 
+
+Pengecualian: `width` dan `height` bisa menerima string persentase:
+ 
+width: '50%'    // 50% dari parent
+ 
+
+### StyleSheet vs Inline Style
+
+ 
+// ✅ Direkomendasikan: StyleSheet.create()
+<View style={styles.container}>
+
+// ⚠️ Boleh tetapi kurang optimal: inline object
+<View style={{ flex: 1, backgroundColor: 'red' }}>
+
+// ✅ Boleh: gabung keduanya dengan array
+<View style={[styles.container, styles.active]}>
+ 
+
+---
+
+## 🏆 Tugas / Latihan
+
+> [!IMPORTANT]
+> Selesaikan semua tugas berikut dan kumpulkan file `App.js` beserta screenshot aplikasi.
+
+### Tugas Wajib (Nilai 70)
+1. **Ganti data profil** dengan data pribadi Anda (nama, email, foto, dll)
+2. **Tambah minimal 3 skill** baru dengan warna berbeda
+3. **Tambah 1 pengalaman kerja/organisasi** dan **1 riwayat pendidikan** baru
+
+### Tugas Pengembangan (Nilai 30)
+4. **Tambah komponen `KeyboardAvoidingView`** agar form tidak tertutup keyboard
+5. **Buat tab navigasi sederhana** (Info / Skills / Kontak) menggunakan `TouchableOpacity`
+6. **Tambah animasi** pada profile avatar menggunakan `Animated` API
+
+---
+
+## 📚 Referensi
+
+| Sumber | Link |
+|---|---|
+| Dokumentasi Resmi React Native | https://reactnative.dev/docs/components-and-apis |
+| Expo Documentation | https://docs.expo.dev |
+| React Native StyleSheet | https://reactnative.dev/docs/stylesheet |
+| Flexbox di React Native | https://reactnative.dev/docs/flexbox |
+
+---
+
+*Modul Praktikum — Pemrograman Mobile · Pertemuan: Core Components & Styling*
+

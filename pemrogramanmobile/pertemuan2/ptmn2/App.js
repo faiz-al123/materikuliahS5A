@@ -19,6 +19,7 @@ import {
   StyleSheet,
   Alert,
   Platform,
+  Linking,
 } from 'react-native';
 
 const PROFILE = {
@@ -32,43 +33,50 @@ const PROFILE = {
 };
 
 const SKILLS = [
-  { id: '1', name: 'React Native', level: 90, color: '#61DAFB' },
+  { id: '1', name: 'Baca Tulis Al-Quran', level: 90, color: '#61DAFB' },
   { id: '2', name: 'Flutter', level: 75, color: '#02569B' },
   { id: '3', name: 'JavaScript', level: 88, color: '#F7DF1E' },
-  { id: '4', name: 'TypeScript', level: 80, color: '#3178C6' },
+  { id: '4', name: 'English Language', level: 80, color: '#3178C6' },
   { id: '5', name: 'Node.js', level: 70, color: '#339933' },
   { id: '6', name: 'Firebase', level: 82, color: '#FFCA28' },
 ];
 
 const SECTIONS = [
   {
-    title: '💼 Pengalaman Kerja',
+    title: '💼 SKILLS AND EXPERIENCE',
     data: [
       {
         id: 'e1',
-        role: 'Senior Mobile Developer',
-        company: 'PT. TechVision Indonesia',
-        period: '2022 - Sekarang',
-        desc: 'Memimpin tim 5 developer dalam pengembangan aplikasi e-commerce mobile.',
+        role: 'Baca Tulis Al-Quran',
+        company: 'Dapat membaca dan menulis Al-Quran dengan baik',
+        period: '2018 - Sekarang',
+        //desc: '',
       },
       {
         id: 'e2',
-        role: 'Mobile Developer',
-        company: 'Startup Fintech - PayEasy',
-        period: '2020 - 2022',
-        desc: 'Mengembangkan fitur pembayaran digital menggunakan React Native & Redux.',
+        role: 'English Language',
+        company: 'An Expert in English',
+        period: '2020 - 2024',
+        desc: 'Can speaking English normally',
+      },
+      {
+        id: 'e3',
+        role: 'Mahasiswa Iformatika',
+        company: 'UIN Siber Syekh Nurjati Cirebon',
+        period: '2026 - Sekarang',
+        desc: 'Mengerjakan projek IOT untuk kebutuhan medis',
       },
     ],
   },
   {
-    title: '🎓 Pendidikan',
+    title: '🎓 Pendidikan Terakir',
     data: [
       {
         id: 'd1',
-        role: 'S1 Informatika',
-        company: 'Universitas Islam Negeri Siber Syekh Nurjati Cirebon',
-        period: '2024 - 2029',
-        desc: 'IPK 3.72 / 4.00 · Skripsi: Implementasi ML pada Aplikasi Mobile.',
+        role: 'MAN 5 Cirebon',
+        company: 'Jurusan IPA',
+        period: '2021 - 2024',
+        desc: 'Ahli dalam berbahasa Inggris dan baca tulis AL-Quran',
       },
     ],
   },
@@ -76,7 +84,7 @@ const SECTIONS = [
 
 // DATA SOSIAL MEDIA
 const SOCIAL = [
-  { id: 's1', label: 'GitHub', icon: '🦑', url: 'github.com/faiz-al123' },
+  { id: 's1', label: 'GitHub', icon: '🦑', url: 'https://github.com/faiz-al123' },
 ];
 
 // SUB-COMPONENT: SkillCard
@@ -173,7 +181,7 @@ export default function App() {
         {/* SECTION PROFIL */}
         <View style={styles.profileSection}>
           <Image
-            source={{ uri: PROFILE.avatar }}
+            source={PROFILE.avatar}
             style={styles.avatar}
           />
 
@@ -199,7 +207,11 @@ export default function App() {
               <TouchableOpacity
                 key={s.id}
                 style={styles.socialBtn}
-                onPress={() => Alert.alert('🔗 Link', s.url)}
+                onPress={() => {
+                  Linking.openURL(s.url).catch(() =>
+                    Alert.alert('⚠️ Gagal', 'Tidak bisa membuka link ini.')
+                  );
+                }}
                 activeOpacity={0.8}
               >
                 <Text style={styles.socialIcon}>{s.icon}</Text>
