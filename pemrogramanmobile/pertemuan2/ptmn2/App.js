@@ -28,8 +28,7 @@ const PROFILE = {
   email: 'faizalfarzei@gmail.com',
   phone: '085701984398',
   location: 'Cirebon',
-  //avatar: require('./assets/FAIZ ALFARESI_4662.jpg'),
-  avatar: 'https://drive.google.com/file/d/1sMKHjSHxFdLvkMTirdfVV-7_9YYebze2/view?usp=drive_link',
+  avatar: require('./assets/FAIZ ALFARESI_4662.jpg'),
 };
 
 const SKILLS = [
