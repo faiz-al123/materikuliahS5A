@@ -328,6 +328,6 @@ width: '50%'    // 50% dari parent
 gif
 ![alt text](Screenrecorder-20260927-232017-1.gif)
 ss
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
+![alt text](image-33.png)
+![alt text](image-1-1.png)
+![alt text](image-2-1.png)
