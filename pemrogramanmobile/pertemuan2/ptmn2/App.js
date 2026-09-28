@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 // LANGKAH 1: Import semua yang dibutuhkan
 import React, { useState } from 'react';
+
+
 import {
   View,
   Text,
