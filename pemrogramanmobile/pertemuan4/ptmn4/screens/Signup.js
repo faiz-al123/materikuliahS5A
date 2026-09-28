@@ -4,7 +4,7 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 export default function Signup({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Halaman Sign Up</Text>
+      <Text style={styles.title}>Selamat Datang Faiz</Text>
       <Button 
         title="Kembali ke Login" 
         // Menggunakan navigation.goBack() untuk membuang tumpukan layar saat ini

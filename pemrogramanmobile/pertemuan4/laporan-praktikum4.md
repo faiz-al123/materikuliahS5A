@@ -24,3 +24,5 @@ setelah mengikuti praktikum ini, mahasiswa diharapkan mampu:
 7. konfirmasi bukti
 ![alt text](image-1.png)
 ![alt text](image-2.png)
+
+### Praktikum 3: Bottom Tab Navigation ###
