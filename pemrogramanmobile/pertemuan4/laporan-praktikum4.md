@@ -22,3 +22,5 @@ setelah mengikuti praktikum ini, mahasiswa diharapkan mampu:
 5. install untuk web emulator (npx expo install react-dom react-native-web)
 6. npx expo start --web
 7. konfirmasi bukti
+![alt text](image-1.png)
+![alt text](image-2.png)
