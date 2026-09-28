@@ -8,3 +8,5 @@ setelah mengikuti praktikum ini, mahasiswa diharapkan mampu:
 
 ### langkah praktikum ###
 1. membuat projek baru bernama ptmn4 (npx create-expo-app ptmn4 --template blank)
+2. change directory ke ptmn4
+![alt text](image.png)
