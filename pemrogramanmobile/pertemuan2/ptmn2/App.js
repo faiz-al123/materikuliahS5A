@@ -37,7 +37,7 @@ const SKILLS = [
   { id: '2', name: 'Flutter', level: 75, color: '#02569B' },
   { id: '3', name: 'JavaScript', level: 88, color: '#F7DF1E' },
   { id: '4', name: 'English Language', level: 80, color: '#3178C6' },
-  { id: '5', name: 'Node.js', level: 70, color: '#339933' },
+  { id: '5', name: 'Menggunakan PHP dan MySQL', level: 70, color: '#339933' },
   { id: '6', name: 'Firebase', level: 82, color: '#FFCA28' },
 ];
 
