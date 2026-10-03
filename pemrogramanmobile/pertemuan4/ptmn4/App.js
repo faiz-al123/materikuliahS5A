@@ -1,30 +1,19 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-// Import Screen
-import Login from  './screens/Login';
-import Signup from './screens/Signup';
+import HomeScreen from './screens/HomeScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
-// Inisialisasi Stack
-const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        {/* Daftarkan layar-layar yang ada */}
-        <Stack.Screen 
-          name="Login" 
-          component={Login} 
-          options={{ headerShown: false }} 
-        />
-        <Stack.Screen 
-          name="Signup" 
-          component={Signup} 
-          options={{ title: 'Daftar Akun Baru' }} 
-        />
-      </Stack.Navigator>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} options={{ drawerLabel: 'Beranda' }} />
+        <Drawer.Screen name="Profile" component={ProfileScreen} options={{ drawerLabel: 'Profil Pengguna' }} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
